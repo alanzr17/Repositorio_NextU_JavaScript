@@ -118,3 +118,40 @@ function dividir(numero1, numero2) {
 function limpiarTodo() {
     document.getElementById("display").innerHTML="0";
 }
+
+// Funciones que cambian el tamaño de las teclas
+function aumentarTamaño(id) {
+    document.getElementById(id).style.width="80px";
+}
+
+function reducirTamaño(id) {
+    document.getElementById(id).style.width="70px";
+}
+
+// Funcion que nos permite agregar el punto a la operacion si es que no tiene un punto 
+
+function agregarPunto() {
+    var cantidadActual = document.getElementById("display").innerHTML;
+    if(cantidadActual.indexOf(".") == -1){
+        cantidadActual = cantidadActual + ".";    
+        document.getElementById("display").innerHTML= cantidadActual;
+    }
+}
+
+// Funcion que convierte el numero a negativo, o si es negativo lo hace positivo 
+
+function agregarSigno() {
+    var cantidadActual = document.getElementById("display").innerHTML;
+    if(cantidadActual.indexOf("-") == -1){
+        if(cantidadActual != "0"){
+            var convertir = parseFloat(cantidadActual);
+            var convertido = multiplicar(convertir, -1);
+            convertido = convertido.toString();
+            document.getElementById("display").innerHTML = convertido;
+        }   
+    } else {
+    cantidadActual = cantidadActual.replace("-","");
+
+    document.getElementById("display").innerHTML = cantidadActual;
+    }
+}
